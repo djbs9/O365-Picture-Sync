@@ -7,7 +7,7 @@
 $outputlevel = 3 
 
 $scriptpath = "C:\Scripts"
-$scriptname = "SetUserPhoto"
+$scriptname = "Set-UserPhoto"
 
 $PhotosPath = "C:\UsersPhoto"
 $csvfilename = "Users.csv"
@@ -15,9 +15,10 @@ if ($MSOLCred -eq $null)
 {
 $MSOLCred = get-credential
 }
-
-#$ExSession = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/?proxymethod=rps -Credential $MSOLCred -Authentication Basic -AllowRedirection
-
+if ($Exsession -ne $null)
+{
+$ExSession = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/?proxymethod=rps -Credential $MSOLCred -Authentication Basic -AllowRedirection
+}
 
 #----------------------------------------------------------
 #AUTO CALCULATED VARIABLES
